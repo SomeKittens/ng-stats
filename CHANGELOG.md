@@ -1,3 +1,8 @@
+# 2.1.4
+
+- Adding localStorage [#19](/../../pull/19)
+- Fixing options issue [#20](/../../pull/20)
+
 # 2.1.2
 
 - In a moment of pure idiocy, I ignored the dist directory...

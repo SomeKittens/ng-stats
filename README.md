@@ -27,6 +27,15 @@ graph shows a trend of the digest cycle average time.
 
 ## Installation
 
+### Bookmarklet
+
+Copy the code below and create a bookmarklet for ng-stats to use it on any angular website (so long as the debug info is
+enabled, if not, you'll need to run `angular.reloadWithDebugInfo()` first).
+
+```javascript
+javascript: (function() {var a = document.createElement("script");a.src = "https://rawgithub.com/kentcdodds/ng-stats/master/src/ng-stats.js";document.head.appendChild(a);setTimeout(function() {window.showAngularStats()}, 500);})();
+```
+
 If you just want the chart for development purposes, it's actually easiest to use as a
 [Chrome DevTools Snippet](https://developer.chrome.com/devtools/docs/authoring-development-workflow#snippets).
 Just copy/paste the `ng-stats.js` file into a snippet.
@@ -82,11 +91,11 @@ Possible values: Any combination of `top`, `left`, `right`, `bottom`.
 
 The time (in milliseconds) where it goes from red to green.
 
-#### autoload (boolean) - default: false
+#### autoload (string or boolean) - default: false
 
-Uses sessionStorage to store whether the graphic should be automatically loaded every time the page is reloaded.
+Uses the [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage) to store whether the graphic should be automatically loaded every time the page is reloaded.  Pass in `'localStorage'` for persistent loading or `'sessionStorage'` to load ng-stats for only the current session.
 
-Note, if you pass `false` as options, it will simply remove the stats window: `showAngularStats(false)`
+Note, if you pass `false` as options, it will simply remove the stats window and exit: `showAngularStats(false)`
 
 #### trackDigest (boolean) - default: false
 
